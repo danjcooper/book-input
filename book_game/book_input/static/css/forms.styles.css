@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+label {
+    display: none;
+}
+main {
+    margin: 15px;
+}
+
+input, textarea {
+    width: 100%;
+}
