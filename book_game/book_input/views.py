@@ -10,14 +10,26 @@ def homepage(req):
     return HttpResponse("<h1>Hi</h1>")
 
 def add_book(req):
-    if req.method == 'POST':
-        sub_form = forms.regester_book_form(req.POST)
-        if sub_form.is_valid():
-            new_book = sub_form.save()
+
+    form = forms.regester_book_form(req.POST or None)
+    error_message = None
+
+    if req.method == 'POST' and form.is_valid():
+        all_entries = models.Book.objects.all()
+        try:
+            for book in all_entries:
+                print(form.cleaned_data["title"])
+                print(book.title)
+                if form.cleaned_data["title"] == book.title:
+                    error_message = 'Book already exists'
+                    raise Exception()
+            form.save()
             return redirect('all')
-        return redirect('all')
+        except Exception:
+            print(Exception.args)
+            pass
         
-    context = {"form": forms.regester_book_form}
+    context = {"form": form, "error": error_message}
     return render(req, 'add-book.html', context)
 
 def get_all_books(req):
