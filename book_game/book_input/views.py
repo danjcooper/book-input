@@ -33,6 +33,7 @@ def add_book(req):
     return render(req, 'add-book.html', context)
 
 def get_all_books(req):
-    books = models.Book.objects.all()
+    books = models.Book.objects.all().order_by("-pk")
     context = {"books": books}
     return render(req, 'all-books.html', context)
+
