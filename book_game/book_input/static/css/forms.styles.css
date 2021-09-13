@@ -20,6 +20,7 @@ button {
    
     width: 100%;
     padding: 15px 10px;
+    -webkit-appearance: none;
 }
 
 h1 {
