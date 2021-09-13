@@ -1,9 +1,13 @@
 .more-info {
     height: 0px;
     overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    text-align: center;
 }
 .book-info {
-    background: crimson;
+    background: rgb(233, 233, 233);
     padding: 5px;
     text-align: center;
 }
@@ -14,12 +18,21 @@
     font-size: 12px;
 }
 .see-details {
-    background: black;
+    background: rgb(51, 45, 95);
     color: white;
     text-align: center;
+
 
     padding: 7px 0;
 }
 .see-details p {
     margin: 0;
+
+}
+.book {
+    margin: 5px;
+    border: 2px solid gray;
+}
+.heading {
+    font-weight: bold;
 }
