@@ -18,8 +18,6 @@ def add_book(req):
         all_entries = models.Book.objects.all()
         try:
             for book in all_entries:
-                print(form.cleaned_data["title"])
-                print(book.title)
                 if form.cleaned_data["title"] == book.title:
                     error_message = 'Book already exists'
                     raise Exception()

@@ -13,4 +13,16 @@ main {
 
 input, textarea {
     width: 100%;
+    padding: 15px 10px;
+}
+
+button {
+   
+    width: 100%;
+    padding: 15px 10px;
+}
+
+h1 {
+    font-size: 27px;
+    text-align: center;
 }

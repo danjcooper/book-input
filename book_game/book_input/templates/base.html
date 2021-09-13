@@ -1,16 +1,18 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.styles.css' %}">
     {% block css %}{% endblock css %}
     {% block title %}{% endblock title %}
 </head>
 <body>
     <nav>
-        <a href="{% url 'add-a-book' %}">Add a Book</a>
-        <a href="{% url 'all' %}">View All Books</a>
+        <a href="{% url 'add-a-book' %}" {% if request.url == url %} class="active" {% endif %}>Add a Book</a>
+        <a href="{% url 'all' %}" {% if request.url == url %} class="active" {% endif %}>View All Books</a>
     </nav>
     {% block content %}{% endblock content %}
 </body>
