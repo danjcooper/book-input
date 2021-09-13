@@ -1,0 +1,25 @@
+.more-info {
+    height: 0px;
+    overflow: hidden;
+}
+.book-info {
+    background: crimson;
+    padding: 5px;
+    text-align: center;
+}
+.book-info h2{
+    font-size: 17px;
+}
+.book-info p{
+    font-size: 12px;
+}
+.see-details {
+    background: black;
+    color: white;
+    text-align: center;
+
+    padding: 7px 0;
+}
+.see-details p {
+    margin: 0;
+}

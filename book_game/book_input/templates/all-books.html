@@ -1,13 +1,39 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block css %}{% endblock css %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/all-books.styles.css' %}">
+{% endblock css %}
+
+{% block js %}
+    <script defer src="{% static 'js/all-books.js' %}"></script>
+{% endblock js %}
 
 {% block title %}
     <title>All Books</title>
 {% endblock title %}
 
 {% block content %}
+<main>
     {% for book in books %}
-        <h1>{{book.title}}</h1>
+    
+            <article>
+                <section class="book-info">
+                    <h2>{{book.title}}</h2>
+                    <p>{{book.author}} <span>({{book.year}})</span></p>
+                </section>
+                <section class="see-details">
+                    <p>See details</p>
+                </section>
+                <section class="more-info">
+                    <p>{{book.blurb}}</p>
+                    <p>first Line:</p>
+                    <p>{{book.first_line}}</p>
+                    <p>Last Line:</p>
+                    <p>{{book.last_line}}</p>
+                </section>
+            </article>
+
     {% endfor %}
+</main>
 {% endblock content %}
