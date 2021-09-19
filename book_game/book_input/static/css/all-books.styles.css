@@ -1,38 +1,56 @@
 .more-info {
-    height: 0px;
-    overflow: hidden;
-    padding-left: 10px;
-    padding-right: 10px;
+  height: 0px;
+  overflow: hidden;
+  padding-left: 10px;
+  padding-right: 10px;
 
-    text-align: center;
+  text-align: center;
 }
 .book-info {
-    background: rgb(233, 233, 233);
-    padding: 5px;
-    text-align: center;
+  background: rgb(233, 233, 233);
+  padding: 5px;
+  text-align: center;
 }
-.book-info h2{
-    font-size: 17px;
+.book-info h2 {
+  font-size: 17px;
 }
-.book-info p{
-    font-size: 12px;
+.book-info p {
+  font-size: 12px;
 }
 .see-details {
-    background: rgb(51, 45, 95);
-    color: white;
-    text-align: center;
+  background: rgb(51, 45, 95);
+  color: white;
+  text-align: center;
 
+  padding: 7px 0;
+}
+.edit {
+  background: rgb(81, 72, 155);
+  color: white;
+  text-align: center;
 
-    padding: 7px 0;
+  padding: 7px 0;
 }
 .see-details p {
-    margin: 0;
-
+  margin: 0;
+}
+.edit p {
+  margin: 0;
 }
 .book {
-    margin: 5px;
-    border: 2px solid gray;
+  margin: 5px;
+  border: 2px solid gray;
 }
 .heading {
-    font-weight: bold;
+  font-weight: bold;
+}
+
+a.edit-link {
+  text-decoration: none;
+  margin: 10px;
+  font-weight: bold;
+  color: rgb(81, 72, 155);
+}
+.edit-section {
+  padding: 10px;
 }

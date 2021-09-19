@@ -1,42 +1,38 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block css %}
-    <link rel="stylesheet" href="{% static 'css/all-books.styles.css' %}">
-{% endblock css %}
-
-{% block js %}
-    <script defer src="{% static 'js/all-books.js' %}"></script>
-{% endblock js %}
-
-{% block title %}
-    <title>All Books</title>
-{% endblock title %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/all-books.styles.css' %}" />
+{% endblock css %} {% block js %}
+<script defer src="{% static 'js/all-books.js' %}"></script>
+{% endblock js %} {% block title %}
+<title>All Books</title>
+{% endblock title %} {% block content %}
 <main>
-    {% for book in books %}
-    
-            <article class="book">
-                <section class="book-info">
-                    <h2>{{book.title}}</h2>
-                    <p>{{book.author}} <span>({{book.year}})</span></p>
-                </section>
-                <section class="see-details">
-                    <p class="heading">See details</p>
-                </section>
-                <section class="more-info">
-                    <p class="heading">Blurb</p>
-                    <p>{{book.blurb}}</p>
-                    <hr/>
-                    <p class="heading">First Line</p>
-                    <p>{{book.first_line}}</p>
-                    <hr/>
-                    <p class="heading">Last Line</p>
-                    <p>{{book.last_line}}</p>
-                </section>
-            </article>
+  {% for book in books %}
 
-    {% endfor %}
+  <article class="book">
+    <section class="book-info">
+      <h2>{{book.title}}</h2>
+      <p>{{book.author}} <span>({{book.year}})</span></p>
+    </section>
+    <section class="see-details">
+      <p class="heading">See details</p>
+    </section>
+
+    <section class="more-info">
+      <p class="heading">Blurb</p>
+      <p>{{book.blurb}}</p>
+      <hr />
+      <p class="heading">First Line</p>
+      <p>{{book.first_line}}</p>
+      <hr />
+      <p class="heading">Last Line</p>
+      <p>{{book.last_line}}</p>
+      <hr />
+      <section class="edit-section">
+        <a class="edit-link" href="{% url 'edit' id=book.pk %}">Edit</a>
+      </section>
+    </section>
+  </article>
+
+  {% endfor %}
 </main>
 {% endblock content %}

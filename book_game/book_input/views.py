@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse
 from . import forms
@@ -33,3 +33,11 @@ def get_all_books(req):
     books = models.Book.objects.all().order_by("-pk")
     context = {"books": books}
     return render(req, 'all-books.html', context)
+
+def update_book_entry(req, id):
+    instance = get_object_or_404(models.Book, id=id)
+    form = forms.regester_book_form(req.POST or None, instance=instance)
+    if form.is_valid():
+        form.save()
+        return redirect('all')
+    return render(req, 'update-book.html', {'form': form}) 
