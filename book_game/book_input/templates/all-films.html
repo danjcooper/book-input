@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/all-books.styles.css' %}" />
+{% endblock css %} {% block js %}
+<script defer src="{% static 'js/all-books.js' %}"></script>
+{% endblock js %} {% block title %}
+<title>All Films</title>
+{% endblock title %} {% block content %}
+<main>
+  {% for film in films %}
+
+  <article class="book">
+    <section class="book-info">
+      <h2>{{film.title}}</h2>
+      <p>{{film.director}} <span>({{film.year}})</span></p>
+    </section>
+    <section class="see-details">
+      <p class="heading">See details</p>
+    </section>
+
+    <section class="more-info">
+      <p class="heading">Description</p>
+      <p>{{film.description}}</p>
+      <hr />
+      <p class="heading">First Line</p>
+      <p>{{film.first_line}}</p>
+      <hr />
+      <p class="heading">Last Line</p>
+      <p>{{film.last_line}}</p>
+      <hr />
+      <section class="edit-section">
+        <a class="edit-link" href="{% url 'edit' id=film.pk %}">Edit</a>
+      </section>
+    </section>
+  </article>
+
+  {% endfor %}
+</main>
+{% endblock content %}

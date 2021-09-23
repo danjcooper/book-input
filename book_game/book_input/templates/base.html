@@ -17,8 +17,14 @@
 </head>
 <body>
     <nav>
-        <a href="{% url 'add-a-book' %}" {% if request.url == url %} class="active" {% endif %}>Add a Book</a>
-        <a href="{% url 'all' %}" {% if request.url == url %} class="active" {% endif %}>View All Books</a>
+        <a href="{% url 'add-a-book' %}" {% if request.url == url %} class="active" {% endif %}>Add Book</a>
+
+        <a href="{% url 'all' %}" {% if request.url == url %} class="active" {% endif %}>All Books</a>
+
+        <a href="{% url 'add-a-film' %}" {% if request.url == url %} class="active" {% endif %}>Add Film</a>
+
+        <a href="{% url 'all-films' %}" {% if request.url == url %} class="active" {% endif %}>All Films</a>
+
     </nav>
     {% block content %}{% endblock content %}
 </body>

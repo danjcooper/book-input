@@ -41,3 +41,29 @@ def update_book_entry(req, id):
         form.save()
         return redirect('all')
     return render(req, 'update-book.html', {'form': form}) 
+
+
+def add_film(req):
+    
+    form = forms.regester_film_form(req.POST or None)
+    error_message = None
+
+    if req.method == 'POST' and form.is_valid():
+        all_entries = models.Films.objects.all()
+        try:
+            for book in all_entries:
+                if form.cleaned_data["title"] == book.title:
+                    error_message = 'Film already exists'
+                    raise Exception()
+            form.save()
+            return redirect('all-films')
+        except Exception:
+            pass
+        
+    context = {"form": form, "error": error_message}
+    return render(req, 'add-film.html', context)
+
+def get_all_films(req):
+    films = models.Films.objects.all().order_by("-pk")
+    context = {"films": films}
+    return render(req, 'all-films.html', context)

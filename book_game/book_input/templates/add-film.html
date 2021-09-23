@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% load static %} {% block title %}
+<title>Add a Film</title>
+{% endblock title %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/forms.styles.css' %}" />
+{% endblock css %} {% block content %}
+<main>
+  <form method="POST">
+    <h1>Add a Film to the database</h1>
+    {% if error %}
+    <p>{{error}}</p>
+    {% endif %} {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Add Film</button>
+  </form>
+</main>
+{% endblock content %}
