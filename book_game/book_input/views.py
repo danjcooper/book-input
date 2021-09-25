@@ -67,3 +67,12 @@ def get_all_films(req):
     films = models.Films.objects.all().order_by("-pk")
     context = {"films": films}
     return render(req, 'all-films.html', context)
+
+
+def update_film_entry(req, id):
+    instance = get_object_or_404(models.Films, id=id)
+    form = forms.regester_film_form(req.POST or None, instance=instance)
+    if form.is_valid():
+        form.save()
+        return redirect('all-films')
+    return render(req, 'update-film.html', {'form': form}) 

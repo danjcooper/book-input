@@ -9,4 +9,5 @@ urlpatterns = [
     path('all/', views.get_all_books, name="all"),
     path('all-films/', views.get_all_films, name="all-films"),
     path('edit-book/<int:id>', views.update_book_entry, name="edit"),
+    path('edit-film/<int:id>', views.update_film_entry, name="edit-film"),
 ]
